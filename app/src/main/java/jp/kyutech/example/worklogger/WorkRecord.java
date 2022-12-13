@@ -27,7 +27,6 @@ public class WorkRecord
   private Date date = null;	 // Date of a record
   private Time checkin = null;	 // Checkin time
   private Time checkout = null; // Checkout time
-  private long subTime ;
 
   public WorkRecord()
   {
@@ -205,8 +204,9 @@ public class WorkRecord
     long second = (mills / 1000) % 60;
     long minute = (mills / (1000 * 60)) % 60;
     long hour = (mills / (1000 * 60 * 60)) % 24;
-    String time = String.format("%02d:%02d:%02d:%d",
-            hour, minute, second, mills % 1000);
+    String time = String.format("%02d:%02d:%02d",
+            hour, minute, second);
+    System.out.println(time);
     return time;
   }
 

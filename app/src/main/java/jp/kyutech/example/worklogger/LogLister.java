@@ -5,7 +5,6 @@
 // $Id$
 
 package jp.kyutech.example.worklogger;
-
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
@@ -77,16 +76,27 @@ class LogLister
     for(WorkRecord record : records){
       String checkin_time = record.getCheckinTimeAsString("        ");
       String checkout_time = record.getCheckoutTimeAsString("        ");
-      String sub_time=record.getProgressTime();
       String arrow = (record.getCheckinTime()==null)?"  ":"=>";
-      //int dummy = 1/0;
-      System.out.println("Checkin : " + checkin_time);
-      System.out.println("Checkout: " + checkout_time);
+      if(checkout_time=="        "){
+          //int dummy = 1/0;
+          System.out.println("Checkin : " + checkin_time);
+          System.out.println("Checkout: " + checkout_time);
 
-        String label =
-	String.format("%s    %s %s %s%s",
-		      record.getDate(), checkin_time, arrow, checkout_time,sub_time);
-      items.add(label);
+          String label =
+                  String.format("%s    %s %s %s",
+                          record.getDate(), checkin_time, arrow, checkout_time);
+          items.add(label);
+      }else {
+          String sub_time=record.getProgressTime();
+          //int dummy = 1/0;
+          System.out.println("Checkin : " + checkin_time);
+          System.out.println("Checkout: " + checkout_time);
+
+          String label =
+                  String.format("%s    %s %s %s%n勤務時間：%s",
+                          record.getDate(), checkin_time, arrow, checkout_time,sub_time);
+          items.add(label);
+      }
     }
 
     if(items.equals(last_items)){
