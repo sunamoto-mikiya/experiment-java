@@ -199,6 +199,17 @@ public class WorkRecord
     return checkout.toString();
   }
 
+  public  String getProgressTime(){
+    long mills = this.checkout.getTime()-this.checkin.getTime();
+    long second = (mills / 1000) % 60;
+    long minute = (mills / (1000 * 60)) % 60;
+    long hour = (mills / (1000 * 60 * 60)) % 24;
+    String time = String.format("%02d:%02d:%02d",
+            hour, minute, second);
+    System.out.println(time);
+    return time;
+  }
+
   public String getCheckoutTimeAsHHMMString()
   {
     if(checkout == null){
