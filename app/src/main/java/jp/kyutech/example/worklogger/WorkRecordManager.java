@@ -160,6 +160,14 @@ public class WorkRecordManager {
         return true;
     }
 
+    public synchronized boolean deleteWorkRecord(WorkRecord record) {
+        if (record == null) {
+            return false;
+        }
+        recdb.deleteWorkRecord(record);
+        return true;
+    }
+
     /*
      * Write the work records between a duration in a databse to
      * a given stream as text.

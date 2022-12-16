@@ -197,10 +197,10 @@ public class WorkRecordDatabase extends SQLiteOpenHelper
 
     SQLiteDatabase db = this.getWritableDatabase();
     try {
-      // BUGS: Actual deletion codes are incomplete.  Please fill in
-      // this block to delete a work record in the database.  The
-      // method updateWorkRecord() could be a good example for
-      // understanding how to operate the records of a database.
+        ContentValues values = toContentValues(record);
+        db.delete(TABLE_WORKRECORDS,
+                FIELD_ID + " = ?",
+                new String[]{String.valueOf(record.getId())});
     } finally {
       db.close();
     }
