@@ -136,6 +136,10 @@ class LogLister
     recordManager.updateWorkRecord(record);
   }
 
+  private  void deleteTimeRecord(WorkRecord record){
+      recordManager.deleteWorkRecord(record);
+  }
+
   private Time getTimeOfButton(Button button)
   {
     Time time = null;
@@ -206,7 +210,7 @@ class LogLister
                         public void onClick(DialogInterface dialogInterface,
                                             int i)
                         {
-                            // Nothing to do.
+                            deleteTimeRecord(record);
                         }
                     });
     builder.create();
