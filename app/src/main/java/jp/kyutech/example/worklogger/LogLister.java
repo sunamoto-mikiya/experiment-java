@@ -198,6 +198,17 @@ class LogLister
 	   // Nothing to do.
 	 }
        });
+    builder.setNegativeButton
+            (R.string.time_editor_delete,
+                    new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface,
+                                            int i)
+                        {
+                            // Nothing to do.
+                        }
+                    });
     builder.create();
     alertDialog = builder.show();
     alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
@@ -206,6 +217,7 @@ class LogLister
     Button endButton = (Button)editTimeView.findViewById(R.id.endTimeButton);
     startButton.setText(record.getCheckinTimeAsString("        "));
     endButton.setText(record.getCheckoutTimeAsString("        "));
+
   }
 
   /*
