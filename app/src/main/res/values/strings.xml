@@ -10,6 +10,7 @@
     <string name="time_editor_title">Edit Work Record</string>
     <string name="time_editor_edit_message_format">Edit a work record on %s</string>
     <string name="time_editor_yes">Update</string>
+    <string name="time_editor_delete">Delete</string>
     <string name="time_editor_cancel">Cancel</string>
 
     <!-- Strings related to About dialog -->
