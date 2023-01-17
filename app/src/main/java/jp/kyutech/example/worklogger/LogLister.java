@@ -83,8 +83,8 @@ class LogLister
           System.out.println("Checkout: " + checkout_time);
 
           String label =
-                  String.format("%s    %s %s %s",
-                          record.getDate(), checkin_time, arrow, checkout_time);
+                  String.format("%s%n 休憩開始時間：%s",
+                          record.getDate(), checkin_time);
           items.add(label);
       }else {
           String sub_time=record.getProgressTime();
@@ -93,8 +93,8 @@ class LogLister
           System.out.println("Checkout: " + checkout_time);
 
           String label =
-                  String.format("%s    %s %s %s%n勤務時間：%s",
-                          record.getDate(), checkin_time, arrow, checkout_time,sub_time);
+                  String.format("%s%n 休憩開始時間：%s%n 休憩終了時間：%s%n 休憩時間：%s",
+                          record.getDate(), checkin_time, checkout_time,sub_time);
           items.add(label);
       }
     }
