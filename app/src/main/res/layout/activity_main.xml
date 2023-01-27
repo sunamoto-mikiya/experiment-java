@@ -16,7 +16,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:background="#bbff33"
+        android:background="#a9a9a9"
         android:scrollbars="vertical"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
