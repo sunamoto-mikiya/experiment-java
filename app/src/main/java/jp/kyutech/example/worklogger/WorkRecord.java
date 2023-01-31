@@ -204,7 +204,7 @@ public class WorkRecord
     long second = (mills / 1000) % 60;
     long minute = (mills / (1000 * 60)) % 60;
     long hour = (mills / (1000 * 60 * 60)) % 24;
-    String time = String.format("%02d:%02d:%02d",
+    String time = String.format("%02d時間%02d分%02d秒",
             hour, minute, second);
     System.out.println(time);
     return time;

@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity
   private static final String LOGTAG = "MainActivity";
   private WorkRecordManager     recordManager = null;
   private StarterSwitch         starterSwitch = null;
+  private WorkStarterSwitch     workStarterSwitch = null;
   private LogLister             logLister = null;
   private Notifier              notifier = null;
   // NOTE: Remember a current application state because Dialogs cannot
@@ -53,9 +54,14 @@ public class MainActivity extends AppCompatActivity
     logList.setOnItemLongClickListener(logLister);
 
     ToggleButton starterButton = (ToggleButton)findViewById(R.id.starterButton);
+    ToggleButton workStarterButton = (ToggleButton)findViewById(R.id.workStarterButton);
     starterSwitch =
       new StarterSwitch(this, starterButton, recordManager);
     starterButton.setOnCheckedChangeListener(starterSwitch);
+
+    workStarterSwitch =
+            new WorkStarterSwitch(this, workStarterButton, recordManager);
+    workStarterButton.setOnCheckedChangeListener(starterSwitch);
 
     if(savedInstanceState != null){
       onRestoreInstanceState(savedInstanceState);

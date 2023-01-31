@@ -73,30 +73,32 @@ class LogLister
 
     // Create a list of items to be displayed.
     ArrayList<String> items = new ArrayList<>();
+
     for(WorkRecord record : records){
-      String checkin_time = record.getCheckinTimeAsString("        ");
-      String checkout_time = record.getCheckoutTimeAsString("        ");
-      String arrow = (record.getCheckinTime()==null)?"  ":"=>";
-      if(checkout_time=="        "){
-          //int dummy = 1/0;
-          System.out.println("Checkin : " + checkin_time);
-          System.out.println("Checkout: " + checkout_time);
+        if(record.isToday()) {
+            String checkin_time = record.getCheckinTimeAsString("        ");
+            String checkout_time = record.getCheckoutTimeAsString("        ");
+            if (checkout_time == "        ") {
+                //int dummy = 1/0;
+                System.out.println("Checkin : " + checkin_time);
+                System.out.println("Checkout: " + checkout_time);
 
-          String label =
-                  String.format("%s    %s %s %s",
-                          record.getDate(), checkin_time, arrow, checkout_time);
-          items.add(label);
-      }else {
-          String sub_time=record.getProgressTime();
-          //int dummy = 1/0;
-          System.out.println("Checkin : " + checkin_time);
-          System.out.println("Checkout: " + checkout_time);
+                String label =
+                        String.format("%s%n 休憩開始時間：%s",
+                                record.getDate(), checkin_time);
+                items.add(label);
+            } else {
+                String sub_time = record.getProgressTime();
+                //int dummy = 1/0;
+                System.out.println("Checkin : " + checkin_time);
+                System.out.println("Checkout: " + checkout_time);
 
-          String label =
-                  String.format("%s    %s %s %s%n勤務時間：%s",
-                          record.getDate(), checkin_time, arrow, checkout_time,sub_time);
-          items.add(label);
-      }
+                String label =
+                        String.format("%s%n 休憩開始時間：%s%n 休憩終了時間：%s%n 休憩時間：%s",
+                                record.getDate(), checkin_time, checkout_time, sub_time);
+                items.add(label);
+            }
+        }
     }
 
     if(items.equals(last_items)){

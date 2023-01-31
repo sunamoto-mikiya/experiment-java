@@ -8,4 +8,9 @@
         android:icon="@drawable/worklogger_icon"
         android:title="@string/menu_app_about_title"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/option_menu_logout"
+        android:icon="@drawable/worklogger_icon"
+        android:title="@string/menu_app_logout"
+        app:showAsAction="never" />
 </menu>
