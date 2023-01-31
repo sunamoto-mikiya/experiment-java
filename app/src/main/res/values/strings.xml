@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WorkLogger</string>
+    <string name="app_name">勤怠管理システム</string>
 
     <string name="start_working">Start working</string>
     <string name="stop_working">Stop working</string>
